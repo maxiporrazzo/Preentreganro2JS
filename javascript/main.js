@@ -1,7 +1,7 @@
 let carrito = [];
 let descuentoAplicado = false;
 
-// Cargar carrito desde localStorage al iniciar
+
 function cargarCarrito() {
     let carritoGuardado = localStorage.getItem("carrito");
 
@@ -11,7 +11,7 @@ function cargarCarrito() {
     }
 }
 
-// Guardar carrito en localStorage
+
 function guardarCarrito() {
     localStorage.setItem("carrito", JSON.stringify(carrito));
 }
@@ -57,6 +57,6 @@ function vaciarCarrito() {
     mostrarCarrito();
 }
 
-// Se ejecuta cuando carga la página
+
 cargarCarrito();
 
