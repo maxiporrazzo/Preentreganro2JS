@@ -2,20 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
     <script defer src="./javascript/main.js"></script>
 </head>
 <body>
-    <h1>simulador de compras</h1>
-    <p>       Este simulador permite al usuario interactuar con una tienda virtual mediante
-        cuadros de diálogo y la consola de JavaScript. El usuario puede seleccionar
-        productos, calcular el total de la compra y confirmar la operación.
-    </p>
-    <p>
-    El objetivo principal es aplicar variables, funciones, condicionales
-    y ciclos de iteración, priorizando la lógica del programa por sobre
-    el diseño visual.
-    </p>
+        <h1>🛒 Tienda</h1>
+
+    <div class="productos">
+        <div class="producto">
+            <p>Producto A - $100</p>
+            <button onclick="agregarAlCarrito('Producto A', 100)">Agregar</button>
+        </div>
+
+        <div class="producto">
+            <p>Producto B - $200</p>
+            <button onclick="agregarAlCarrito('Producto B', 200)">Agregar</button>
+        </div>
+
+        <div class="producto">
+            <p>Producto C - $200</p>
+            <button onclick="agregarAlCarrito('Producto C', 200)">Agregar</button>
+        </div>
+    </div>
+
+    <h2>Carrito</h2>
+    <ul id="carrito"></ul>
+    <p>Total: $<span id="total">0</span></p>
+
+    <button onclick="vaciarCarrito()">Vaciar carrito</button>
 </body>
 </html>

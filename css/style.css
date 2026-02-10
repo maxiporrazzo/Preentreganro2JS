@@ -1,0 +1,24 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.productos {
+    margin-bottom: 20px;
+}
+
+.producto {
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.carrito {
+    margin-top: 20px;
+}
+
+.carrito-item {
+    margin-bottom: 10px;
+}

@@ -1,86 +1,62 @@
-// ===============================
-// SIMULADOR DE TIENDA - CARRITO
-// ===============================
-
-const productos = [
-    { nombre: "Remera", precio: 5000 },
-    { nombre: "Pantalón", precio: 12000 },
-    { nombre: "Zapatillas", precio: 25000 }
-];
-
 let carrito = [];
-let totalCompra = 0;
+let descuentoAplicado = false;
 
-// ---------- FUNCIONES ----------
+// Cargar carrito desde localStorage al iniciar
+function cargarCarrito() {
+    let carritoGuardado = localStorage.getItem("carrito");
 
-function mostrarProductos() {
-    let mensaje = "Productos disponibles:\n\n";
-
-    for (let i = 0; i < productos.length; i++) {
-        mensaje += (i + 1) + ". " + productos[i].nombre +
-                " - $" + productos[i].precio + "\n";
-    }
-
-    alert(mensaje);
-    console.log(mensaje);
-}
-
-// Permite agregar productos al carrito
-function agregarAlCarrito() {
-    let opcion = prompt(
-        "Ingrese el número del producto que desea agregar:\n" +
-        "1 - Remera\n2 - Pantalón\n3 - Zapatillas\n\n" +
-        "Ingrese 0 para finalizar"
-    );
-
-    while (opcion !== "0") {
-        let indice = parseInt(opcion) - 1;
-
-        if (indice >= 0 && indice < productos.length) { 
-            carrito.push(productos[indice]);
-            totalCompra += productos[indice].precio;
-
-            alert("Agregaste: " + productos[indice].nombre);
-            console.log("Producto agregado:", productos[indice]);
-        } else {
-            alert("Opción inválida");
-        } 
-
-        opcion = prompt(
-            "Ingrese otro producto o 0 para finalizar"
-        );
+    if (carritoGuardado != null) {
+        carrito = JSON.parse(carritoGuardado);
+        mostrarCarrito();
     }
 }
 
-// Muestra el resumen y confirma la compra
-function finalizarCompra() {
-    let mensaje = "Resumen de compra:\n\n";
-
-    for (let producto of carrito) {
-        mensaje += "- " + producto.nombre +
-                " $" + producto.precio + "\n";
-    }
-
-    mensaje += "\nTotal a pagar: $" + totalCompra;
-
-    let confirmar = confirm(
-        mensaje + "\n\n¿Desea confirmar la compra?"
-    );
-
-    if (confirmar) {
-        alert("¡Gracias por su compra!");
-        console.log("Compra confirmada. Total:", totalCompra);
-    } else {
-        alert("Compra cancelada");
-        console.log("Compra cancelada");
-    }
+// Guardar carrito en localStorage
+function guardarCarrito() {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
+function agregarAlCarrito(nombre, precio) {
+    carrito.push({ nombre: nombre, precio: precio });
+    guardarCarrito();
+    mostrarCarrito();
+}
 
+function calcularTotal() {
+    let suma = 0;
 
-alert("Bienvenido al simulador de compra");
+    for (let i = 0; i < carrito.length; i++) {
+        suma = suma + carrito[i].precio;
+    }
 
-mostrarProductos();
-agregarAlCarrito();
-finalizarCompra();
+    if (descuentoAplicado == true) {
+        let descuento = suma * 0.10;
+        suma = suma - descuento;
+    }
+
+    return suma;
+}
+
+function mostrarCarrito() {
+    const lista = document.getElementById("carrito");
+    lista.innerHTML = "";
+
+    for (let i = 0; i < carrito.length; i++) {
+        const li = document.createElement("li");
+        li.textContent = carrito[i].nombre + " - $" + carrito[i].precio;
+        lista.appendChild(li);
+    }
+
+    document.getElementById("total").textContent = calcularTotal();
+}
+
+function vaciarCarrito() {
+    carrito = [];
+    descuentoAplicado = false;
+    localStorage.removeItem("carrito");
+    mostrarCarrito();
+}
+
+// Se ejecuta cuando carga la página
+cargarCarrito();
 
