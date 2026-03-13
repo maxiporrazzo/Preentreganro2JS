@@ -1,0 +1,50 @@
+[
+    {
+    "id": 1,
+    "nombre": "Café Espresso",
+    "precio": 1200,
+    "imagen": "src/cafe.expresso.jpg"
+    },
+    {
+    "id": 2,
+    "nombre": "Café Latte",
+    "precio": 1500,
+    "imagen": "src/latte.png"
+    },
+    {
+    "id": 3,
+    "nombre": "Cappuccino",
+    "precio": 1700,
+    "imagen": "src/cappuccino.png"
+    },
+    {
+    "id": 4,
+    "nombre": "Café Mocha",
+    "precio": 1800,
+    "imagen": "src/mocha.png"
+    },
+    {
+    "id": 5,
+    "nombre": "Flat White",
+    "precio": 1600,
+    "imagen": "src/flatwhite.png"
+    },
+    {
+    "id": 6,
+    "nombre": "Americano",
+    "precio": 1100,
+    "imagen": "src/americano.png"
+    },
+    {
+    "id": 7,
+    "nombre": "Cold Brew",
+    "precio": 1900,
+    "imagen": "src/coldbrew.jpg"
+    },
+    {
+    "id": 8,
+    "nombre": "Café con leche",
+    "precio": 1400,
+    "imagen": "src/cafeconleche.jpg"
+    }
+]

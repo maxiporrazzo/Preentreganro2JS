@@ -1,36 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Entrega nro2</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <script defer src="./javascript/main.js"></script>
+    <title>Coder Cafe | Tienda de cafés especiales</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script defer src="javascript/main.js"></script>
 </head>
 <body>
-        <h1>🛒 Tienda</h1>
 
-    <div class="productos">
-        <div class="producto">
-            <p>Producto A - $100</p>
-            <button onclick="agregarAlCarrito('Producto A', 100)">Agregar</button>
+    <header class="header-principal">
+        <div class="header-contenido">
+            <h1>☕ Coder Cafe</h1>
+            <p>Tienda de cafés especiales</p>
         </div>
+    </header>
 
-        <div class="producto">
-            <p>Producto B - $200</p>
-            <button onclick="agregarAlCarrito('Producto B', 200)">Agregar</button>
+    <section class="sobre-cafe">
+        <div class="contenedor-sobre">
+            <div class="texto-sobre">
+                <h2>Pasión por el Buen Café</h2>
+                <p>En Coder Cafe seleccionamos los mejores granos para ofrecerte una experiencia inolvidable. Disfruta de nuestros aromas únicos y sabores inigualables, elaborados por baristas expertos preparados para deleitar tu paladar.</p>
+                <button id="btnVerMenu" class="btn-menu">Ver el menú completo ↓</button>
+            </div>
+            <div class="imagen-sobre">
+                <img src="src/cafeteria.jpg" alt="Café de especialidad preparado">
+            </div>
         </div>
+    </section>
 
-        <div class="producto">
-            <p>Producto C - $200</p>
-            <button onclick="agregarAlCarrito('Producto C', 200)">Agregar</button>
-        </div>
-    </div>
+    <main id="seccionMenu" class="contenedor-principal">
+        <section class="productos">
+            <h2>Nuestros productos</h2>
+            <div id="contenedorProductos" class="grid-productos"></div>
+        </section>
 
-    <h2>Carrito</h2>
-    <ul id="carrito"></ul>
-    <p>Total: $<span id="total">0</span></p>
+        <aside class="carrito">
+            <h2>🛒 Carrito</h2>
+            <ul id="carritoLista"></ul>
+            <div class="carrito-total">
+                <p>Total: $<span id="totalCarrito">0</span></p>
+            </div>
+            <div class="carrito-botones">
+                <button id="vaciarCarrito" class="btn-vaciar">Vaciar carrito</button>
+                <button id="finalizarCompra" class="btn-finalizar">Finalizar compra</button>
+            </div>
+        </aside>
+    </main>
 
-    <button onclick="vaciarCarrito()">Vaciar carrito</button>
+    <footer>
+        <p>Proyecto Final JavaScript - Coder Cafe</p>
+    </footer>
+
 </body>
 </html>
