@@ -154,7 +154,7 @@ function dibujarCarrito() {
 
     if (carrito.length === 0) {
         const mensaje = document.createElement("li");
-        mensaje.textContent = "El carrito está re vacío.";
+        mensaje.textContent = "El carrito está vacío.";
         listaCarrito.append(mensaje);
         spanTotal.textContent = "0";
         return;
